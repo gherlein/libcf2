@@ -8,6 +8,9 @@ This is very much a work in progress.  I think the USB is getting set up right, 
 
 THIS CODE IS NOT YET WORKING.
 
+##References
+This code draws reference from the [BitCraze Wiki](https://wiki.bitcraze.io/doc:crazyflie:crtp:index#crtp) as well as from their [python code](https://github.com/bitcraze/crazyflie-clients-python)
+
 ##Dependencies
 This code requires [libusb 1.0](http://www.libusb.org/wiki/libusb-1.0)
 
