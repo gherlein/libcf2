@@ -20,6 +20,7 @@ This code has only been compiled and tested on OSX.  I plan on making it work on
 
 ## Credits
 Inspired and assisted by reviewing the [libcflie](https://github.com/fairlight1337/libcflie) code by [Jan Winkler](https://github.com/fairlight1337)
+Also learning and inspired by [crazyflie_ros](https://github.com/whoenig/crazyflie_ros/) by [whoenig](https://github.com/whoenig)
 
 ## License
 This code is licensed GPL3.  I am both giving back and adhering to the licenses of the code that inspired my work.

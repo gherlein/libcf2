@@ -375,7 +375,7 @@ readData(void)
 
   int nReturn = libusb_bulk_transfer(dev_handle, (0x81 | LIBUSB_ENDPOINT_IN), (unsigned char*)buffer, 128, &nActuallyRead, 50);
 
-  if(nReturn != 0) 
+  if(nReturn != LIBUSB_SUCCESS) 
   {
     switch(nReturn) 
     {
@@ -435,8 +435,10 @@ writeData(CRTPPacket* p, int nLength)
   printPacket(p);
 
   int nReturn = libusb_bulk_transfer(dev_handle, (0x01 | LIBUSB_ENDPOINT_OUT), (unsigned char*)p, nLength, &nActuallyWritten, 1000);
-
-  if(nReturn == 0 && nActuallyWritten == nLength) 
+ if (status != LIBUSB_SUCCESS) {
+        std::cerr << "Send " << libusb_error_name(status) << std::endl;
+    }
+  if(nReturn == LIBUSB_SUCCESS && nActuallyWritten == nLength) 
   {
     printf("wrote %d bytes \n",nActuallyWritten);
     r=readACK();
