@@ -21,7 +21,7 @@
 #include <unistd.h>
 #include <string.h>
 
-#include <libusb.h>
+#include <libusb-1.0/libusb.h>
 #include "libcf2.h" 
 //#include "crtp.h" 
 
@@ -435,9 +435,9 @@ writeData(CRTPPacket* p, int nLength)
   printPacket(p);
 
   int nReturn = libusb_bulk_transfer(dev_handle, (0x01 | LIBUSB_ENDPOINT_OUT), (unsigned char*)p, nLength, &nActuallyWritten, 1000);
- if (status != LIBUSB_SUCCESS) {
-        std::cerr << "Send " << libusb_error_name(status) << std::endl;
-    }
+  if (nReturn != LIBUSB_SUCCESS) {
+    printf("error\n");
+  }
   if(nReturn == LIBUSB_SUCCESS && nActuallyWritten == nLength) 
   {
     printf("wrote %d bytes \n",nActuallyWritten);

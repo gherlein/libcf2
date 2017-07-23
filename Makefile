@@ -4,21 +4,19 @@ HASH = $(shell git log --pretty=format:'%h' -n 1)
 
 CC         = cc
 #CFLAGS     = -g -Weverything
-CFLAGS     = -g 
+CFLAGS     = -g -std=c99
 OUTFLAG    = -o 
 DFLAGS    =            
 
-LIBS       = -L /usr/local/lib  -lm -lusb-1.0
+LIBS       = -lm -lusb-1.0
 TARGET     = cf-test
-
-INCLUDEDIR = -I/usr/local/include/libusb-1.0
 
 CF         = libcf2.o
 
 all:  $(TARGET) 
 
 .c.o : 
-	$(CC) $(CFLAGS) -c $< $(INCLUDEDIR) 
+	$(CC) $(CFLAGS) -c $< 
 
 
 clean:
